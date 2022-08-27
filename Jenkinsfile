@@ -10,13 +10,12 @@ pipeline {
                 sh 'cd backend && sudo gem install sinatra && sudo gem install sinatra-contrib'
                 sh 'sudo apt install ruby-bundler'
                 sh 'cd backend && sudo bundle install'
-                sh 'pwd'
             }
         }
         
         stage('Deploying backend') {
             steps {
-                sh 'cd backend && sudo ruby backend.rb -o 0.0.0.0'
+                sh 'cd backend && sudo nohub ruby backend.rb -o 0.0.0.0'
             }
         }
     }
