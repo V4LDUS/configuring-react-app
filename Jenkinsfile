@@ -2,14 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Building') {
+        stage('Building backend') {
             steps {
-                echo 'Building ruby!'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Done with ruby!'
+                sh 'apt-get update'
+                sh 'gem install sinatra > ./backend'
             }
         }
     }
