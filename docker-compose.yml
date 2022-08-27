@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+
+  react:
+    build: ./frontend
+    restart: always
+    ports:
+      - '80'
+    networks:
+      - react_network
+  
+  ruby:
+    build: ./backend
+    ports:
+      - '3002:4567'
+    restart: always
+    networks:
+      - react_network
+
+  nginx:
+    hostname: nginx
+    image: nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    restart: always
+    ports:
+      - '9000:80'
+    networks:
+      - react_network
+
+networks:
+  react_network:
