@@ -15,7 +15,7 @@ pipeline {
         
         stage('Deploying backend') {
             steps {
-                sh 'cd backend && sudo nohub backend.rb -o 0.0.0.0'
+                sh 'cd backend && sudo nohup ruby backend.rb -o 0.0.0.0 &'
             }
         }
     }
