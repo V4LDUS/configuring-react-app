@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Building backend') {
             steps {
-                sh 'apt-get update'
+                sh 'sudo apt-get update'
                 sh 'gem install sinatra > ./backend'
             }
         }
