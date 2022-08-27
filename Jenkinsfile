@@ -21,7 +21,7 @@ pipeline {
         
         stage('Building Frontend') {
             steps {
-                sh 'sudo apt install npm'
+                sh 'sudo apt install npm -y'
                 sh 'cd frontend && sudo npm install'
             }
         }
