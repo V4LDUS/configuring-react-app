@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+
+  react:
+    build: ./frontend
+    ports:
+      - '8850:80'
+    restart: always
+    networks:
+      - react_network
+
+  nginx:    
+    image: nginx:latest 
+    container_name: nginx-container  
+    ports:  
+      - '80'  
+    links:
+      - php
+    volumes:  
+      - ./nginx:/etc/nginx/sites-available  
+    restart: always
+    networks:
+      - react_network
+
+  php:    
+    image: php:8.1-fpm
+    restart: always
+    volumes:
+      - ./www/html/:/var/www/html/ 
+    networks:
+      - react_network
+
+networks:
+  react_network:
