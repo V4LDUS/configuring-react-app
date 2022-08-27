@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Building backend') {
+        stage('Building Backend') {
             steps {
                 sh 'sudo apt-get update'
                 sh 'sudo apt install ruby-full -y'
@@ -13,9 +13,21 @@ pipeline {
             }
         }
         
-        stage('Deploying backend') {
+        stage('Deploying Backend') {
             steps {
                 sh 'cd backend && sudo nohup ruby backend.rb -o 0.0.0.0 &'
+            }
+        }
+        
+        stage('Building Frontend') {
+            steps {
+                sh 'cd frontend && sudo npm install'
+            }
+        }
+        
+        stage('Deploying Frontend') {
+            steps {
+                sh 'cd frontend && sudo nohup npm start'
             }
         }
     }
