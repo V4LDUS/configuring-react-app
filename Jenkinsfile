@@ -1,16 +1,25 @@
-pipeline {
+pipeline{
     agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building php..'
+    
+    stages{
+        stage("Building docker"){
+            steps{
+                sh "docker compose build"
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Done with php!'
+        stage("Running docker"){
+            steps{
+                sh "docker compose up -d"
             }
+        }
+    }
+    
+    post{
+        success{
+            echo '~~~ Pipeline executed successfuly! ~~~'
+        }
+        failure{
+            echo '~~~ Pipeline failed ~~~'
         }
     }
 }
