@@ -22,13 +22,13 @@ pipeline {
         stage('Building Frontend') {
             steps {
                 sh 'sudo apt install npm -y'
-                sh 'cd frontend && sudo npm ci'
+                sh 'cd frontend && sudo npm ci --silent'
             }
         }
         
         stage('Deploying Frontend') {
             steps {
-                sh 'cd frontend && sudo nohup npm build'
+                sh 'cd frontend && sudo nohup npm run build'
             }
         }
     }
