@@ -1,15 +1,17 @@
 pipeline{
-    agent any
+    agent {
+        label 'agentNode'
+    }
     
     stages{
         stage("Building docker"){
             steps{
-                sh "docker compose build"
+                sh "sudo docker-compose build"
             }
         }
         stage("Running docker"){
             steps{
-                sh "docker compose up -d"
+                sh "sudo docker-compose up -d"
             }
         }
     }
