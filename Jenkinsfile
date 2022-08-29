@@ -32,7 +32,7 @@ pipeline {
         stage('Deploying Frontend') {
             steps {
                 // sh 'cd frontend && sudo nohup npm run build
-                sh 'cd frontend && sudo docker run react_img -p 5000:80'
+                sh 'cd frontend && sudo docker run -p 5000:80 react_img'
             }
         }
     }
