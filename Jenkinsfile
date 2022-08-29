@@ -23,14 +23,16 @@ pipeline {
         
         stage('Building Frontend') {
             steps {
-                sh 'sudo apt install npm -y'
-                sh 'cd frontend && sudo npm update && sudo npm ci'
+                // sh 'sudo apt install npm -y'
+                // sh 'cd frontend && sudo npm update && sudo npm ci'
+                sh 'cd frontend && sudo docker build -t react_img .'
             }
         }
         
         stage('Deploying Frontend') {
             steps {
-                sh 'cd frontend && sudo nohup npm run build'
+                // sh 'cd frontend && sudo nohup npm run build
+                sh 'cd frontend && sudo docker run react_img -p 5000:80'
             }
         }
     }
