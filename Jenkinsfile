@@ -1,4 +1,7 @@
-node('agentNode') {
+pipeline {
+    agent {
+        label 'agentNode'
+    }
     
     stages{
         stage("Building docker"){
