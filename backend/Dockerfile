@@ -17,4 +17,4 @@ RUN bundle install
 #EXPOSE 4567/tcp
 
 # startup command
-# CMD ["ruby", "backend.rb", "-o", "0.0.0.0"]
+CMD ["ruby", "backend.rb", "-o", "0.0.0.0"]
