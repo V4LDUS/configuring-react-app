@@ -9,7 +9,7 @@ pipeline {
                 // sh 'cd configuring-react-app && git checkout ruby_branch && cd'
 
                 sh 'docker build -t vapp_backend ./backend/'
-                sh 'docker build -t vapp_frontend ./frontend/'
+                sh 'docker build -t vapp_front ./frontend/'
                 
                 sh 'docker tag vapp_backend:latest 021910420728.dkr.ecr.us-east-1.amazonaws.com/vapp_backend:latest'
                 sh 'docker push 021910420728.dkr.ecr.us-east-1.amazonaws.com/vapp_backend:latest'
