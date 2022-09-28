@@ -13,14 +13,12 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: backend:latest
-#        resources:
-#          limits:
-#            memory: "128Mi"
-#            cpu: "500m"
+        image: 021910420728.dkr.ecr.us-east-1.amazonaws.com/vapp_backend:latest
         imagePullPolicy: Never
         ports:
         - containerPort: 4567
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service

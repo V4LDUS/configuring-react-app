@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: myapp2
-        image: frontend:latest
+        image: 021910420728.dkr.ecr.us-east-1.amazonaws.com/vapp_front:latest
         resources:
           limits:
             memory: "128Mi"
@@ -24,6 +24,8 @@ spec:
         # envFrom:
         #   - configMapRef:
         #       name: myapp2
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
