@@ -1,22 +1,8 @@
-// pipeline {
-//     agent any
+pipeline {
+    agent {
+        label 'agentM'
+    }
 
-//     stages {
-//         stage('Building') {
-//             steps {
-//                 sh "gem install bundler"
-//                 sh "bundle install"
-//             }
-//         }
-//         stage('Test') {
-//             steps {
-//                 echo 'Done with ruby!'
-//             }
-//         }
-//     }
-// }
-
-node {
     withCredentials([file(credentialsId: 'valCluster', variable: 'kube')]) {
         stages {
             stage('Building') {
