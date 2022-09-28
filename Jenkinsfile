@@ -3,7 +3,7 @@ pipeline {
         label 'agentM'
     }
 
-    withCredentials([file(credentialsId: 'valCluster', variable: 'kube')]) {
+    // withCredentials([file(credentialsId: 'valCluster', variable: 'kube')]) {
         stages {
             stage('Building') {
                 steps {
@@ -31,5 +31,5 @@ pipeline {
                 
             }
         }
-    }
+    // }
 }
