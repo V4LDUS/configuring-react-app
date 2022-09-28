@@ -23,12 +23,13 @@ pipeline {
                 withCredentials([file(credentialsId: 'valCluster', variable: 'kube')]) {
                 sh 'kubectl --kubeconfig=$kube delete deployment myapp'
                 sh 'kubectl --kubeconfig=$kube delete deployment myapp2'
-
                 sh 'kubectl --kubeconfig=$kube delete svc myapp'
                 sh 'kubectl --kubeconfig=$kube delete svc myapp2'
 
-                sh 'kubectl --kubeconfig=$kube create -f kfrontend.yaml'
-                sh 'kubectl --kubeconfig=$kube create -f kbackend.yaml'
+                sh 'kubectl --kubeconfig=$kube apply -f back_d.yaml'
+                sh 'kubectl --kubeconfig=$kube apply -f back_s.yaml'
+                sh 'kubectl --kubeconfig=$kube apply -f front_d.yaml'
+                sh 'kubectl --kubeconfig=$kube apply -f front_s.yaml'
                 }
             }            
         }

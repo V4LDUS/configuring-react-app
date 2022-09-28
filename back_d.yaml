@@ -19,17 +19,3 @@ spec:
         - containerPort: 4567
       imagePullSecrets:
       - name: regcred
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: myapp
-spec:
-  selector:
-    app: myapp
-  ports:
-  - port: 4567
-    nodePort: 30001
-  type: NodePort
-  externalIPs: 
-    - 10.0.1.23
