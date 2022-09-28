@@ -24,6 +24,9 @@ pipeline {
                 sh 'kubectl --kubeconfig=$kube delete deployment myapp'
                 sh 'kubectl --kubeconfig=$kube delete deployment myapp2'
 
+                sh 'kubectl --kubeconfig=$kube delete svc myapp'
+                sh 'kubectl --kubeconfig=$kube delete svc myapp2'
+
                 sh 'kubectl --kubeconfig=$kube create -f kfrontend.yaml'
                 sh 'kubectl --kubeconfig=$kube create -f kbackend.yaml'
                 }
