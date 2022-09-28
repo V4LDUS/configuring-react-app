@@ -26,10 +26,10 @@ pipeline {
                 sh 'kubectl --kubeconfig=$kube delete svc myapp'
                 sh 'kubectl --kubeconfig=$kube delete svc myapp2'
 
-                sh 'kubectl --kubeconfig=$kube apply -f back_d.yaml'
-                sh 'kubectl --kubeconfig=$kube apply -f back_s.yaml'
-                sh 'kubectl --kubeconfig=$kube apply -f front_d.yaml'
-                sh 'kubectl --kubeconfig=$kube apply -f front_s.yaml'
+                sh 'kubectl --kubeconfig=$kube create -f back_d.yaml'
+                sh 'kubectl --kubeconfig=$kube create -f back_s.yaml'
+                sh 'kubectl --kubeconfig=$kube create -f front_d.yaml'
+                sh 'kubectl --kubeconfig=$kube create -f front_s.yaml'
                 }
             }            
         }
