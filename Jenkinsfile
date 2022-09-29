@@ -5,9 +5,6 @@ pipeline {
     stages {
         stage('Building') {
             steps {
-                // sh 'git clone https://github.com/V4LDUS/configuring-react-app'
-                // sh 'cd configuring-react-app && git checkout ruby_branch && cd'
-
                 sh 'docker build -t vapp_backend ./backend/'
                 sh 'docker build -t vapp_front ./frontend/'
                 

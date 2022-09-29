@@ -6,7 +6,7 @@ spec:
   selector:
     app: myapp2
   ports:
-  - port: 3000
+  - port: 80
     nodePort: 30002
   type: NodePort
   externalIPs: 
