@@ -5,6 +5,8 @@ pipeline {
     stages {
         stage('Building') {
             steps {
+                // a fix for token expiration
+                sh'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 021910420728.dkr.ecr.us-east-1.amazonaws.com'
                 sh 'docker build -t vapp_backend ./backend/'
                 sh 'docker build -t vapp_front ./frontend/'
                 
